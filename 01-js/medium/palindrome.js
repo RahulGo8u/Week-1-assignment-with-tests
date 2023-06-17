@@ -7,7 +7,18 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  var org = str.toLowerCase();
+  org = org.replace(/!/g,'');
+  org = org.replace(/\?/g,'');
+  org = org.replace(/,/g,'');
+  org = org.replace(/ /g,'');
+  org = org.replace(/\./g,'');
+  org = org.replace(/-/g,'');
+  let arryRev=[];
+  for (let i = org.length-1; i >= 0; i--) {
+    arryRev[org.length-i-1]=org[i];
+  }
+  let rev = arryRev.join('');
+  return org === rev;
 }
-
 module.exports = isPalindrome;
